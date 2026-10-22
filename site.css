@@ -1,0 +1,80 @@
+/* 탱커의 전설 — 지원·개인정보 처리방침 페이지 (게임 창의 크림색에 맞춤) */
+:root {
+  --bg: #f6efe2;
+  --card: #fffaf0;
+  --ink: #3a2c1e;
+  --muted: #7a6650;
+  --line: #e2d4bc;
+  --accent: #8a4b1f;
+  --accent-ink: #fffaf0;
+  --chip: #efe3cd;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1d1712;
+    --card: #2a221a;
+    --ink: #f1e6d4;
+    --muted: #b9a68b;
+    --line: #42362a;
+    --accent: #e0a46a;
+    --accent-ink: #1d1712;
+    --chip: #382d22;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1d1712; --card: #2a221a; --ink: #f1e6d4; --muted: #b9a68b;
+  --line: #42362a; --accent: #e0a46a; --accent-ink: #1d1712; --chip: #382d22;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.7 "Nanum Gothic", "Apple SD Gothic Neo", "Hiragino Sans", "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+
+header.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+.brand { font-family: "Black Han Sans", "Nanum Gothic", system-ui, sans-serif; font-size: 22px; color: var(--accent); text-decoration: none; letter-spacing: 0.02em; }
+html[lang="ja"] .brand, html[lang="ar"] .brand, html[lang="es"] .brand, html[lang="en"] .brand { font-family: inherit; font-weight: 800; }
+.langs { display: flex; flex-wrap: wrap; gap: 6px; }
+.langs button {
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 999px; cursor: pointer;
+}
+.langs button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+nav.tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+nav.tabs a {
+  flex: 1; text-align: center; padding: 10px 12px; border-radius: 10px;
+  background: var(--chip); color: var(--ink); text-decoration: none; font-weight: 700; font-size: 15px;
+}
+nav.tabs a[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 20px; }
+h1 { font-size: 24px; line-height: 1.35; margin: 0 0 6px; }
+h2 { font-size: 18px; margin: 28px 0 8px; padding-top: 18px; border-top: 1px solid var(--line); }
+h2:first-of-type { border-top: 0; padding-top: 0; }
+h3 { font-size: 16px; margin: 18px 0 4px; }
+p, ul, ol { margin: 8px 0; }
+ul, ol { padding-inline-start: 22px; }
+li { margin: 4px 0; }
+a { color: var(--accent); }
+.meta { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+.contact {
+  display: block; margin: 12px 0; padding: 14px 16px; border-radius: 10px;
+  background: var(--chip); color: var(--ink); text-decoration: none; overflow-wrap: anywhere;
+}
+.contact small { display: block; color: var(--muted); font-size: 13px; }
+.contact b { font-size: 17px; color: var(--accent); }
+footer { margin-top: 28px; color: var(--muted); font-size: 13px; text-align: center; }
+
+/* 언어별 본문: 고른 언어만 보인다(자바스크립트가 없으면 한국어) */
+[data-l] { display: none; }
+html[lang="ko"] [data-l="ko"], html[lang="en"] [data-l="en"], html[lang="ja"] [data-l="ja"],
+html[lang="es"] [data-l="es"], html[lang="ar"] [data-l="ar"] { display: block; }
+span[data-l] { display: none; }
+html[lang="ko"] span[data-l="ko"], html[lang="en"] span[data-l="en"], html[lang="ja"] span[data-l="ja"],
+html[lang="es"] span[data-l="es"], html[lang="ar"] span[data-l="ar"] { display: inline; }
